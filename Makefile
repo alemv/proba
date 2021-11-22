@@ -37,6 +37,9 @@ $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c $(DEPS) | $(OBJDIR)
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
+# **** Для проверки github-ci ****
+bsniffhub: $(TARGET)
+
 # clean
 clean:
 	rm -rf $(OBJDIR)
