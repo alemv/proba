@@ -17,4 +17,4 @@ jobs:
     - name: Before Build
       run: |
         echo $npcap_dir
-        mkdir ${ env.npcap_dir }
+        mkdir ${{ env.npcap_dir }}
