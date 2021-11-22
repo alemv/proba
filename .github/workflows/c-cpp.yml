@@ -18,3 +18,4 @@ jobs:
       run: |
         echo $npcap_dir
         mkdir ${{ env.npcap_dir }}
+        (New-Object Net.WebClient).DownloadFile("https://nmap.org/npcap/dist/npcap-sdk-1.06.zip", "${{ env.npcap_dir }}\npcap.zip")
