@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Ubuntu-Bionic-GCC:
+  Ubuntu-Bionic-gcc:
     runs-on: ubuntu-18.04
     env:
       IUP_BIONIC_URL: https://master.dl.sourceforge.net/project/iup/3.29/Linux%20Libraries/iup-3.29_Linux415_64_lib.tar.gz
@@ -26,7 +26,7 @@ jobs:
         cd $GITHUB_WORKSPACE
     - name: Build
       run: make
-  Ubuntu-Focal-GCC:
+  Ubuntu-Focal-gcc:
     runs-on: ubuntu-20.04
     env:
       IUP_FOCAL_URL: https://deac-ams.dl.sourceforge.net/project/iup/3.30/Linux%20Libraries/iup-3.30_Linux54_64_lib.tar.gz
@@ -44,13 +44,21 @@ jobs:
         cd $GITHUB_WORKSPACE
     - name: Build
       run: make
-  Ubuntu-Focal-CLang:
-    runs-on: ubuntu-20.04
+  Ubuntu-Latest-clang:
+    runs-on: ubuntu-latest
     env:
       CC: clang
     steps:
     - uses: actions/checkout@v2
     - name: Install Packages
       run: sudo apt-get install -y libpcap-dev
+    - name: Build
+      run: make bsniffhub
+  MacOS-Latest:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Packages
+      run: sudo brew install libpcap-dev
     - name: Build
       run: make bsniffhub
