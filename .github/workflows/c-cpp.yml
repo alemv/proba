@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
+    env:
+      IUP_BIONIC_URL: https://master.dl.sourceforge.net/project/iup/3.29/Linux%20Libraries/iup-3.29_Linux415_64_lib.tar.gz
     steps:
     - uses: actions/checkout@v2
     - name: Install Packages
@@ -17,7 +19,7 @@ jobs:
     - name: Before Build
       run: |
         mkdir /tmp/iup
-        wget $IUP_XENIAL_URL -O /tmp/iup/iup.tar.gz
+        wget $IUP_BIONIC_URL -O /tmp/iup/iup.tar.gz
         tar -xvf /tmp/iup/iup.tar.gz
         printf '\n' | sudo ./install
         printf '\n' | sudo ./install_dev
