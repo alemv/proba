@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Packages
-      run: echo $GITHUB_WORKSPACE
+      run: echo ${{ github.workspace }}
