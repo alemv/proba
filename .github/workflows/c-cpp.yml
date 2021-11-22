@@ -10,7 +10,11 @@ on:
 jobs:
   Windows-Latest:
     runs-on: windows-latest
+    env:
+      npcap_dir: ${{ github.workspace }}\msvs\lib\npcap
     steps:
     - uses: actions/checkout@v2
-    - name: Install Packages
-      run: echo ${{ github.workspace }}
+    - name: Before Build
+      run: |
+        echo $npcap_dir
+        mkdir $npcap_dir
