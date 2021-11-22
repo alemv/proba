@@ -59,6 +59,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Packages
-      run: brew install libpcap-dev
+      run: brew install libpcap
     - name: Build
       run: make bsniffhub
