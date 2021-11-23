@@ -14,10 +14,14 @@ jobs:
       npcap_dir: ${{ github.workspace }}\msvs\lib\npcap
     steps:
     - uses: actions/checkout@v2
+    - name: Install MSVS
+      uses: microsoft/setup-msbuild@v1.1
+      with:
+        vs-version: '[15)'
     - name: Before Build
       run: |
         echo $npcap_dir
         mkdir ${{ env.npcap_dir }}
         (New-Object Net.WebClient).DownloadFile("https://nmap.org/npcap/dist/npcap-sdk-1.06.zip", "${{ env.npcap_dir }}\npcap.zip")
         7z x ${{ env.npcap_dir }}\npcap.zip -y -o${{ env.npcap_dir }}
-        msbuild
+        msbuild /?
