@@ -1,2 +1,3 @@
-![github-ci](https://github.com/alemv/proba/workflows/Bsniffhub%20CI/badge.svg)
+![github-ci](https://github.com/alemv/proba/actions/workflows/main.yml/badge.svg)
+<BR>
 проба
