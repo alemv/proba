@@ -1,4 +1,4 @@
-name: Bsniffhub CI
+name: CI
 
 on:
   push:
