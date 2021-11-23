@@ -12,6 +12,7 @@ jobs:
     runs-on: windows-latest
     env:
       npcap_dir: ${{ github.workspace }}\msvs\lib\npcap
+      # use existing folders for VC15, overwrite existing library files with new ones for VC16: 
       iup_x86_dir: ${{ github.workspace }}\msvs\lib\Win32_vc15
       iup_x64_dir: ${{ github.workspace }}\msvs\lib\Win64_vc15
     steps:
