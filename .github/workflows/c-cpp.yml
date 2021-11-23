@@ -20,3 +20,4 @@ jobs:
         mkdir ${{ env.npcap_dir }}
         (New-Object Net.WebClient).DownloadFile("https://nmap.org/npcap/dist/npcap-sdk-1.06.zip", "${{ env.npcap_dir }}\npcap.zip")
         7z x ${{ env.npcap_dir }}\npcap.zip -y -o${{ env.npcap_dir }}
+        msbuild
