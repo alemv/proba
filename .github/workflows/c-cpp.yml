@@ -20,14 +20,14 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
     - name: Before Build
       run: |
-        mkdir ${{ env.npcap_dir }} 2> NUL
+        mkdir -p ${{ env.npcap_dir }}
         (New-Object Net.WebClient).DownloadFile("https://nmap.org/npcap/dist/npcap-sdk-1.06.zip", "${{ env.npcap_dir }}\npcap.zip")
         7z x ${{ env.npcap_dir }}\npcap.zip -y -o${{ env.npcap_dir }}
-        mkdir ${{ env.iup_x86_dir }} 2> NUL
+        mkdir -p ${{ env.iup_x86_dir }}
         (New-Object Net.WebClient).DownloadFile("https://versaweb.dl.sourceforge.net/project/iup/3.30/Windows%20Libraries/Static/iup-3.30_Win32_vc16_lib.zip", "${{ env.iup_x86_dir }}\iup_x86.zip")
         7z x ${{ env.iup_x86_dir }}\iup_x86.zip -y -o${{ env.iup_x86_dir }} iup.lib iupimglib.lib
-        mkdir ${{ env.iup_x64_dir }}
-        mkdir ${{ env.iup_x64_dir }} 2> NUL
+        mkdir -p ${{ env.iup_x64_dir }}
+        mkdir -p ${{ env.iup_x64_dir }}
         (New-Object Net.WebClient).DownloadFile("https://phoenixnap.dl.sourceforge.net/project/iup/3.30/Windows%20Libraries/Static/iup-3.30_Win64_vc16_lib.zip", "${{ env.iup_x64_dir }}\iup_x64.zip")
         7z x ${{ env.iup_x64_dir }}\iup_x64.zip -y -o${{ env.iup_x64_dir }} iup.lib iupimglib.lib
     - name: Build x64
