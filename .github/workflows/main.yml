@@ -1,11 +1,14 @@
-name: Bsniffhub CI
+name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, github-ci ]
+    paths-ignore: '**.md'
   pull_request:
-    branches: [ master ]
-  workflow_dispatch:
+    branches: [ master, github-ci ]
+    paths-ignore: '**.md'
+
+workflow_dispatch:
 
 jobs:
 
